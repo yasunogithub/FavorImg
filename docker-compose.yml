@@ -1,0 +1,20 @@
+version: '3'
+services:
+  db_favo:
+    image: postgres
+    volumes:
+      - postgres_favo:/var/lib/postgresql/data
+    ports:
+      - "5443:5443"
+  web_favo:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3100 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+    ports:
+      - "3100:3100"
+    depends_on:
+      - db_favo
+volumes:
+  postgres_favo:
+    external: true
