@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   get 'welcome/index'
+  get '/logout', to: 'sessions#destroy'
   devise_for :users, controllers: {
       omniauth_callbacks: 'users/omniauth_callbacks'
   }

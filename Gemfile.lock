@@ -251,6 +251,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
+  buftok
   byebug
   capybara (>= 2.15)
   chromedriver-helper
