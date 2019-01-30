@@ -1,11 +1,15 @@
 <h1>Welcome#index</h1>
 <p>Find me in app/views/welcome/index.html.erb</p>
-<%= @user.nickname %>
 <% if user_signed_in? %>
   <p>こんにちは、<%= current_user.name %>さん</p>
   <p>ユーザー用ページです。</p>
 <% else %>
   <p>ログインしてください</p>
 <% end %>
+
+<!--# 画像一覧-->
+<% @imgs.each do |url| %>
+  <%= image_tag (url.to_s) %>
+<% end %>
+
 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-<%= 1+1 %>

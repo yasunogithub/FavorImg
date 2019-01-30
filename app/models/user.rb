@@ -15,6 +15,12 @@ class User < ApplicationRecord
           image: auth.info.image,
           name: auth.info.name,
           nickname: auth.info.nickname,
+
+          # TwitterApiで必要なKey
+          access_token: auth.extra.access_token.token,
+          access_token_secret: auth.extra.access_token.secret,
+          consumer_key: auth.extra.access_token.consumer.key,
+          consumer_secret: auth.extra.access_token.consumer.secret,
           )
     end
 
